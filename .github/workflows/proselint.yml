@@ -39,6 +39,5 @@ jobs:
       - name: Proselint on MD
         run: |
           for file in *.md; do
-          # Run your command on each file and save the output to a text file
             proselint "$file" > "${file%.md}.txt"
           done
