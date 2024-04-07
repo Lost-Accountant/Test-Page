@@ -39,5 +39,5 @@ jobs:
       - name: Proselint on MD
         run: |
           for file in *.md; do
-            proselint "$file" > "${file%.md}.txt"
+            proselint "$file" > "${file%.md}.txt" 2> "${file%.md}_error.txt"
           done
