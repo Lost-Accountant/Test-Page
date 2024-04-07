@@ -15,6 +15,9 @@ permissions:
   pages: write
   id-token: write
 
+
+            
+
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
@@ -22,6 +25,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+
+  # Test running a shellcheck
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
   # Build job
   build:
     runs-on: ubuntu-latest
